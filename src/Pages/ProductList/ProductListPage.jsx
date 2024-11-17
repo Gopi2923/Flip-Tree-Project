@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./ProductListPage.css";
-import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/Images/Product-1.webp";
 import img2 from "../../assets/Images/Product-2.webp";
 import img3 from "../../assets/Images/Product-3.webp";
+import CartPage from "../CartPage/CartPage";
 
 const ProductListPage = () => {
-  const navigate = useNavigate();
 
   const [products] = useState([
     { id: 1, name: "Plant 1", price: 20, image: img1 },
@@ -14,18 +13,38 @@ const ProductListPage = () => {
     { id: 3, name: "Plant 3", price: 25, image: img3 },
   ]);
 
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  });
+
   const handleAddToCart = (product) => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    localStorage.setItem(
-      "cart",
-      JSON.stringify([...cart, { ...product, quantity: 1 }])
-    );
-    alert(`${product.name} added to cart!`);
+    const existingItem = cartItems.find((item) => item.id === product.id);
+    let updatedCart;
+
+    if (existingItem) {
+      updatedCart = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      updatedCart = [...cartItems, { ...product, quantity: 1 }];
+    }
+
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setIsCartOpen(true); 
   };
+
+  const handleCloseCart = () => {
+    setIsCartOpen(false); 
+  };
+ 
 
   return (
     <div className="product-list">
-      <button onClick={() => navigate("/cart")}>Go to Cart</button>
+    
       {products.map((product) => (
         <div key={product.id} className="product-card">
           <img
@@ -40,6 +59,10 @@ const ProductListPage = () => {
           </button>
         </div>
       ))}
+
+      {isCartOpen && (
+        <CartPage cartItems={cartItems} onClose={handleCloseCart}/>
+      )}
     </div>
   );
 };
