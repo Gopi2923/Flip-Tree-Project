@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './ProductListPage.css'
 import { useNavigate } from 'react-router-dom';
-import img1 from '../../assets/Product-1.webp'
-import img2 from '../../assets/Product-2.webp'
-import img3 from '../../assets/Product-3.webp'
+import img1 from '../../assets/Images/Product-1.webp'
+import img2 from '../../assets/Images/Product-2.webp'
+import img3 from '../../assets/Images/Product-3.webp'
 
 
 const ProductListPage = () => {

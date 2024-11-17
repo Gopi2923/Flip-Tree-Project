@@ -15,16 +15,33 @@
   input {
     padding: 10px;
     width: 300px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  .button {
+  .signup-button {
     padding: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .password-input {
+    position: relative;
+    /* margin-bottom: 10px; */
+  }
+  
+  .toggle-button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-80%);
+    background: none;
+    border: none;
+    color: #007bff;
     cursor: pointer;
   }
   
