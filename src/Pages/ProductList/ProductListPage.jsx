@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './ProductListPage.css'
 import { useNavigate } from 'react-router-dom';
+import img1 from '../../assets/Product-1.webp'
+import img2 from '../../assets/Product-2.webp'
+import img3 from '../../assets/Product-3.webp'
+
 
 const ProductListPage = () => {
 
     const navigate = useNavigate();
 
     const [products] = useState([
-        { id: 1, name: "Plant 1", price: 20, image: "https://via.placeholder.com/150" },
-        { id: 2, name: "Plant 2", price: 30, image: "https://via.placeholder.com/150" },
-        { id: 3, name: "Plant 3", price: 25, image: "https://via.placeholder.com/150" },
+        { id: 1, name: "Plant 1", price: 20, image: img1 },
+        { id: 2, name: "Plant 2", price: 30, image: img2 },
+        { id: 3, name: "Plant 3", price: 25, image: img3 },
       ]);
     
       const handleAddToCart = (product) => {
@@ -23,10 +27,10 @@ const ProductListPage = () => {
          <button onClick={() => navigate('/cart')}>Go to Cart</button>
       {products.map((product) => (
         <div key={product.id} className='product-card'>
-           <img src={product.image} alt={product.name} />
+           <img src={product.image} alt={product.name}  style={{ width: "150px", height: "150px", objectFit: "cover" }}/>
            <h3>{product.name}</h3>
            <p>${product.price}</p>
-           <button onClick={() => handleAddToCart(product)}>Add to cart</button>
+           <button onClick={() => handleAddToCart(product)} className='button'>Add to cart</button>
         </div>
       ))}
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import './LoginPage.css'
 import { useNavigate } from "react-router-dom";
 
@@ -37,9 +37,9 @@ const LoginPage = () => {
       value={password}
       onChange={(e) => setPassword(e.target.value)}
     />
-    <button onClick={handleLogin}>Login</button>
+    <button onClick={handleLogin} className='button'>Login</button>
     </div>
-    <p>Don't have an account? <a href="/signup">Sign up</a> </p>
+    <p>Dont have an account? <a href="/signup">Sign up</a> </p>
   </div>
   );
 };

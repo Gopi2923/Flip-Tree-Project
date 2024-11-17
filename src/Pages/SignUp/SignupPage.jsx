@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import './SignupPage.css'
 import { useNavigate } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const SignupPage = () => {
       value={confirmPassword}
       onChange={(e) => setConfirmPassword(e.target.value)}
     />
-    <button onClick={handleSignUp}>Sign Up</button>
+    <button onClick={handleSignUp} className='button'>Sign Up</button>
     </div>
     <p>Already have an account? <a href="/">Login</a> </p>
   </div>
