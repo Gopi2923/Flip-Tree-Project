@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './SignupPage.css';
+import "./SignupPage.css";
 import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
@@ -7,7 +7,7 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -75,9 +75,13 @@ const SignupPage = () => {
           </button>
         </div>
 
-        <button onClick={handleSignUp} className="button">Sign Up</button>
+        <button onClick={handleSignUp} className="button">
+          Sign Up
+        </button>
       </div>
-      <p>Already have an account? <a href="/">Login</a></p>
+      <p>
+        Already have an account? <a href="/">Login</a>
+      </p>
     </div>
   );
 };
