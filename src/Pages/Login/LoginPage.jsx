@@ -27,7 +27,6 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
       <div className="form">
         <input
           type="email"
@@ -50,6 +49,7 @@ const LoginPage = () => {
             {showPassword ? "Hide" : "Show"}
           </button>
         </div>
+        {error && <p className="error">{error}</p>}
         <button onClick={handleLogin} className="button">
           Login
         </button>

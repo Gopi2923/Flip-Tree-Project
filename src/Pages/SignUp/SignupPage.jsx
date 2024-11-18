@@ -34,7 +34,6 @@ const SignupPage = () => {
   return (
     <div className="signup-container">
       <h2>Sign Up</h2>
-      {error && <p className="error">{error}</p>}
       <div className="form">
         <input
           type="email"
@@ -74,7 +73,7 @@ const SignupPage = () => {
             {showConfirmPassword ? "Hide" : "Show"}
           </button>
         </div>
-
+        {error && <p className="error">{error}</p>}
         <button onClick={handleSignUp} className="button">
           Sign Up
         </button>
